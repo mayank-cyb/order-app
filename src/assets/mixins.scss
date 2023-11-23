@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+@mixin activeLinkUnderline($marginTop, $underlineWidth: 0.1875rem) {
+    &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: calc($underlineWidth / 2) 0; // padding-top and padding-bottom will make the total underline width that's why divided by 2
+        margin-top: $marginTop;
+        background: $colorLinkActiveIndicator;
+    }
+}

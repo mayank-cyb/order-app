@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as t,a as o}from"./index-e43ecfb2.js";const _={},a={class:"about"},c=o("h1",null,"This is an about page",-1),n=[c];function i(r,u){return s(),t("div",a,n)}const d=e(_,[["render",i],["__file","D:/LSX/lsx-app/src/pages/AboutView.vue"]]);export{d as default};
