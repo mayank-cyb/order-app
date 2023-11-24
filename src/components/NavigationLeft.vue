@@ -11,9 +11,9 @@
                 :to="{ name: item.routeTo }"
                 ref="listTopLink"
                 :ripple="false"
+                :active="route.name == item.routeTo && !drawerLinkActive"
             >
                 <rpx-button-left-navigation :label="item.label" :icon="item.icon" @click="route.name == 'links' ? onDrawerLinkClick() : onOtherLinkClick()"></rpx-button-left-navigation>
-                <!-- <rpx-button-left-navigation :label="item.label" :icon="item.icon" @click="onOtherLinkClick"></rpx-button-left-navigation> -->
             </v-list-item>
             <v-list-item :active="drawerLinkActive">
                 <rpx-button-left-navigation label="Links" icon="lsx-icon-links"  @click="onDrawerLinkClick" ref="DrawerLink"></rpx-button-left-navigation>
@@ -25,6 +25,7 @@
                 :key="`item-${index}`"
                 :to="{ name: item.routeTo}"
                 ref="listBottomLink"
+                :active="route.name == item.routeTo && !drawerLinkActive"
             >
                 <rpx-button-left-navigation :label="item.label" :icon="item.icon" @click="onOtherLinkClick"></rpx-button-left-navigation>
             </v-list-item>
@@ -37,20 +38,16 @@
 
 <script setup>
 import { RpxButtonLeftNavigation } from '@fssd/rpx-app-components';
-import { ref, reactive, computed, watch, onMounted } from 'vue';
+import { ref, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router'
     const route = useRoute()
     const props = defineProps(['drawer'])
     const emit = defineEmits(['other-links-clicked', 'drawer-link-clicked'])
     let drawerLinkActive = ref(props.drawer)
-    console.log(route.name);
-    // console.log(route.path);
-    const currRouteName = computed(() => route.name);
     const listTopItems = reactive([
         { label: 'Orders', icon: 'lsx-icon-orders', isRoute: true, routeTo: 'home' },
         { label: 'Kiosks', icon: 'lsx-icon-kiosk', isRoute: true, routeTo: 'kiosks' },
         { label: 'Systems', icon: 'lsx-icon-system', isRoute: true, routeTo: 'systems' },
-        // { label: 'Links', icon: 'lsx-icon-links', isRoute: true, routeTo: 'links' },
     ])
 
     const listBottomItems = reactive([
@@ -61,12 +58,10 @@ import { useRoute } from 'vue-router'
 
     function onOtherLinkClick() {
         drawerLinkActive.value = false
-        console.log('other link clicked')
         emit('other-links-clicked')
     }
     function onDrawerLinkClick() {
         drawerLinkActive.value = !drawerLinkActive.value
-        console.log('drawer link clicked')
         emit('drawer-link-clicked')
     }
     watch(() => props.drawer, newDrawerStatus => drawerLinkActive.value = newDrawerStatus)

@@ -60,7 +60,6 @@
   ))
 
   onUnmounted(() => {
-    //console.log(intervalID);
     clearInterval(getInterval());
   })
   

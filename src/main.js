@@ -9,7 +9,7 @@ import '@fssd/rpx-app-icons';
 
 ;(async () => {
   const app = createApp(App)
-  const uiLanguage = 'en' //Get Value from config  await lsxConfig.get('uiLanguage')
+  const uiLanguage = 'en' //TODO:Get Value from config  await lsxConfig.get('uiLanguage')
   const i18n = createI18n({
     locale: uiLanguage, // set locale
     fallbackLocale: 'en', // set fallback locale

@@ -58,8 +58,6 @@
 import { ref } from 'vue'
     const props = defineProps(['drawer'])
     const emit = defineEmits(['update:drawer'])
-    // setup code
-    let drawerStatus = ref(props.drawer); 
 </script>
 
 <style lang="scss">
@@ -120,10 +118,6 @@ import { ref } from 'vue'
                 font-size: 2.6875rem;
                 margin-bottom: 2.3125rem !important;
             }
-        }
-        &__overlay {
-            background: red;
-            width: 100%;
         }
     }
     

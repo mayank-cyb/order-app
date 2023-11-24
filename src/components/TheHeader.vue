@@ -20,22 +20,6 @@
                 </v-btn>
             </v-list-item>
         </v-list>
-        <!-- <v-btn
-            :ripple="false" 
-            variant="text"
-            class="btn-text-only active"
-        >
-            Active
-        </v-btn>
-
-        <v-btn
-            :ripple="false" 
-            variant="text"
-            class="btn-text-only"
-        >
-            Completed
-        </v-btn> -->
-
       <v-spacer></v-spacer>
       <the-date />
       <v-list class="list-horizontal">
@@ -63,7 +47,6 @@ import TheDate from './TheDate.vue';
 const listTopItems = reactive([
       { label: 'Active', isRoute: true, routeTo: 'orders-active' },
       { label: 'Completed', isRoute: true, routeTo: 'orders-completed' },
-      // { label: 'Links', icon: 'lsx-icon-links', isRoute: true, routeTo: 'links' },
   ])
 </script>
 

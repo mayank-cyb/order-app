@@ -1,12 +1,8 @@
 <template>
   <v-app>
-    <!--v-layout-->
     <the-header />
     <navigation-left @drawer-link-clicked="toggleDrawerStatus" @other-links-clicked="closeDrawer" :drawer="drawer"/>
     <navigation-drawer-left v-model="drawer" @click="toggleDrawerStatus"/>
-    <!-- <router-view class="view left-sidebar" name="LeftSidebar">
-      <navigation-drawer-left v-model="drawer" />
-    </router-view> -->
     <v-main class="main-content">
       <section class="main-content__dynamic-view">
         <v-card>
@@ -22,7 +18,6 @@
         <v-card> </v-card>
       </section>
     </v-main>
-    <!--/v-layout-->
   </v-app>
 </template>
 
@@ -36,14 +31,10 @@ import '@/assets/global.scss'
 
     let drawer = ref(false)
     const toggleDrawerStatus = () => {
-      //let { target } = event;
-      //console.log(target);
       drawer.value = !drawer.value
-      console.log(drawer.value, 'drawer toggled')
     }
     const closeDrawer = () => {
       drawer.value = false
-      console.log(drawer.value, 'drawer closed')
     }
 </script>
 
