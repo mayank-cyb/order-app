@@ -22,23 +22,11 @@ const router = createRouter({
       path: '/systems',
       name: 'systems',
       component: () => import('../pages/SystemsView.vue'),
-      children: [
-        { path: 'links',
-          name: 'links',
-          component: () => import('../components/NavigationDrawerLeft.vue') 
-        },
-      ]
     },
     {
       path: '/kiosks',
       name: 'kiosks',
       component: () => import('../pages/KiosksView.vue'),
-      children: [
-        { path: 'links',
-          name: 'links',
-          component: () => import('../components/NavigationDrawerLeft.vue') 
-        },
-      ]
     },
     {
       path: '/passport',
