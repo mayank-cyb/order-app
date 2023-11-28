@@ -88,7 +88,6 @@
         width: 0.125rem;
         height: 2.4375rem;
         background: $colorWhite;
-
       }
     }
   }
