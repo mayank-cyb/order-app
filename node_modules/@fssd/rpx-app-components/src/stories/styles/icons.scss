@@ -1,0 +1,61 @@
+
+[class^='lsx-icon-'] {
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none;
+}
+.btn-circle {
+    &--size-small {
+        i[class^='lsx-icon-']:before {
+            font-size: 1.2rem !important;
+        }
+        &.multi-line {
+            i[class^='lsx-icon-']:before {
+                font-size: 1rem !important;
+                margin-top: -0.25rem;
+            }
+        }
+        &.icon-only {
+            i[class^='lsx-icon-']:before {
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+    &--size-medium {
+        i[class^='lsx-icon-']:before {
+            font-size: 1.5rem !important;
+        }
+        &.multi-line {
+            i[class^='lsx-icon-']:before {
+                font-size: 1.1875rem !important;
+                margin-top: -0.25rem;
+            }
+        }
+        &.icon-only {
+            i[class^='lsx-icon-']:before {
+                font-size: 1.5rem !important;
+            }
+        }
+    }    
+    &--size-large {
+        i[class^='lsx-icon-']:before {
+            font-size: 2rem !important;
+        }
+        &.multi-line {
+            i[class^='lsx-icon-']:before {
+                font-size: 1.25rem !important;
+            }
+            .lsx-icon-arrow-up,
+            .lsx-icon-arrow-down {
+                &::before {
+                    font-size: 0.875rem !important;
+                }
+            }
+        }
+        &.icon-only {
+            i[class^='lsx-icon-']:before {
+                font-size: 2rem !important;
+            }
+        }
+    }
+}    
