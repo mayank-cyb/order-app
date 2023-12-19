@@ -1,0 +1,56 @@
+// @use 'vuetify' with (
+//   $variable: false,
+// );
+
+
+$colorWhite: #FFFFFF;
+$colorBlack: #000000;
+$lsx_background_dark: #033962;
+
+//Controls color scheme
+//Primary Controls
+$colorPrimary: #2D7FBC;
+$colorPrimaryHover: #2B6590;
+$colorPrimaryDisabled: #8BB5D4;
+
+//Secondary Controls
+$colorSecondary: #728DA2;
+$colorSecondaryHover: #2B6590;
+$colorSecondaryDisabled: #8BB5D4;
+
+//Success Controls
+$colorSuccess: #28A745;
+$colorSuccessHover: #218838;
+$colorSuccessDisabled: #74C686;
+
+//Warning Controls
+$colorWarning: #FC9E09;
+$colorWarningHover: #CC7D00;
+$colorWarningDisabled: #FDC56C;
+
+//Danger Controls
+$colorDanger: #ED0F0F;
+$colorDangerHover: #C60808;
+$colorDangerDisabled: #ED6767;
+
+//Info Controls
+$colorInfo: #3EADCE;
+$colorInfoHover: #21819D;
+$colorInfoDisabled: #67C3D0;
+
+//Tooltip
+$colorTooltipBg: #3A4150;
+$colorPopoverPointer: #00000033;
+$colorPopoverGrey: red;
+$colorPopoverTitleBg: #F7F7F7;
+//$colorTooltipBg: red;
+
+//font-family
+$fontRoboto: 'Roboto', sans-serif;
+
+
+//font-weights
+$light: 300;
+$medium: 400;
+$bold: 700;
+$black: 900;
