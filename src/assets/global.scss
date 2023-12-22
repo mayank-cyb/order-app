@@ -1,6 +1,15 @@
-@import './variables.scss';
+@import '@/assets/variables.scss';
 
 html,
 body {
-    font-family: $fontRoboto;
+    font-family: $font_roboto;
+    &::-webkit-scrollbar {
+        width: 1rem;
+        
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color_scrollbar;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
 }
