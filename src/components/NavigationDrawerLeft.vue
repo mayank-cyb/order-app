@@ -1,97 +1,81 @@
 <template>
-    <v-navigation-drawer 
-        location="left"
-        theme="dark"
-        temporary
-        @click="$emit('click')"
-        ref="navDrawerLeft"
+  <VNavigationDrawer 
+    location="left"
+    temporary
+    fixed
+    @click="$emit('click')"
+  >
+    <div class="text-h2">
+      {{ t('headline.links') }}
+    </div>
+    <VList
+      density="compact"
+      nav
     >
-        <div class="text-h2">Links</div>
-        <v-list density="compact" nav>
-            <v-list-item>
-                <v-btn
-                    :ripple="false"
-                >
-                    PORT
-                </v-btn>
-            </v-list-item>
-            <v-list-item>
-                <v-btn
-                    :ripple="false"
-                >
-                    OneWalmart
-                </v-btn>
-            </v-list-item>
-            <v-list-item>
-                <v-btn
-                    :ripple="false"
-                >
-                    Service Portal
-                </v-btn>
-            </v-list-item>
-            <v-list-item>
-                <v-btn
-                    :ripple="false"
-                >
-                    Yes Video
-                </v-btn>
-            </v-list-item>
-            <v-list-item>
-                <v-btn
-                    :ripple="false"
-                >
-                    Order Status
-                </v-btn>
-            </v-list-item>
-            <v-list-item>
-                <v-btn
-                    :ripple="false"
-                >
-                    Marketing
-                </v-btn>
-            </v-list-item>
-        </v-list>
-    </v-navigation-drawer>
+      <VListItem
+        v-for="(item, index) in listItems"
+        :key="`item-${index}`"
+        :ripple="false"
+      >
+        <VBtn
+          :ripple="false"
+        >
+          {{ item.label }}
+        </VBtn>
+      </VListItem>
+    </VList>
+  </VNavigationDrawer>
 </template>
   
 <script setup>
-import { ref } from 'vue'
-    const props = defineProps(['drawer'])
-    const emit = defineEmits(['update:drawer'])
+    import { reactive } from 'vue'
+    import { useI18n } from 'vue-i18n'
+    const emit = defineEmits(['click'])
+    const { t } = useI18n();
+    const listItems = reactive([
+        { label: t('btn.port')},
+        { label: t('btn.oneWalmart')},
+        { label: t('btn.servicePortal')},
+        { label: t('btn.yesVideo')},
+        { label: t('btn.orderStatus')},
+        { label: t('btn.marketing')},
+    ])
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import './src/assets/variables.scss';
     .v-navigation-drawer {
         &--temporary {
-            position: absolute;
-            z-index: 1004 !important;
-            top: 0 !important;
-            bottom: 0 !important;
-            height: 100% !important;
-            background: $colorBgNavDrawer !important;
-            width: 20rem !important;
-            padding: 2.75rem 3.1875rem !important;
-
-            .v-navigation-drawer__content {
-                gap: 0 !important;
+            top: 0 !important; //This is inline style; we cannot modify it.
+            bottom: 0;
+            height: 100% !important; //This is inline style; we cannot modify it.
+            background: $color_bg_nav_drawer;
+            width: 20rem !important; //This is inline style; we cannot modify it.
+            padding: 2.75rem 3.1875rem;
+            :deep(.v-navigation-drawer__content) {
+                gap: 0;
+                .v-list{
+                    .v-list-item {
+                        grid-template-rows: 1.625rem;
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
             }
-            .v-btn--size-default {
+            :deep(.v-btn--size-default) {
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
-                font-size: 1.25rem !important;
-                font-weight: $bold !important;
                 background: none;
                 box-shadow: none;
-                text-align: left !important;
-                padding: 0 !important;
-                max-height: 1.625rem !important;
+                text-align: left;
+                padding: 0;
+                max-height: 1.625rem;
                 &:not(:only-child) {
-                    padding: 0 !important;
+                    padding: 0;
                 }
             }
-            .v-btn__content {
+            :deep(.v-btn__content) {
                 font-size: 1.25rem;
                 font-weight: $medium;
             }
@@ -99,26 +83,22 @@ import { ref } from 'vue'
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
-                padding: 0 !important;
+                padding: 0;
                 flex-grow: 0;
-            }
-            .v-list-item {
-                grid-template-rows: 1.625rem !important;
-                padding: 0 !important;
-                margin: 0 !important;
+                color: $color_white !important; //This is inline style; we cannot modify it.
             }
             .v-list-item--density-compact {
                 &.v-list-item--one-line {
-                    min-height: 1.625rem !important;
-                    justify-content: flex-start !important;
+                    min-height: 1.625rem ;
+                    justify-content: flex-start;
                 }
             }
             .text-h2 {
                 font-weight: $black;
                 font-size: 2.6875rem;
-                margin-bottom: 2.3125rem !important;
+                margin-bottom: 2.3125rem ;
+                color: $color_white;
             }
         }
     }
-    
 </style>
