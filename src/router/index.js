@@ -6,6 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      component: () => import('@/pages/HomeView.vue'),
       components: {
         default: () => import('@/pages/HomeView.vue'),
         WaitingOrders: () => import('@/pages/WaitingOrdersView.vue')
